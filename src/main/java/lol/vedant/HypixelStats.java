@@ -3,6 +3,7 @@ package lol.vedant;
 import lol.vedant.commands.CommandManager;
 import lol.vedant.commands.command.BedwarsCommand;
 import lol.vedant.commands.command.HypixelCommand;
+import lol.vedant.commands.command.SkywarsCommand;
 import lol.vedant.config.Config;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -17,6 +18,7 @@ public class HypixelStats extends ListenerAdapter {
 
         commandManager.registerCommand("hypixel", new HypixelCommand());
         commandManager.registerCommand("bedwars", new BedwarsCommand());
+        commandManager.registerCommand("skywars", new SkywarsCommand());
 
         try {
             JDABuilder builder = JDABuilder.createDefault(token);

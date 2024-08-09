@@ -6,11 +6,14 @@ import lol.vedant.config.Config;
 import net.hypixel.api.HypixelAPI;
 import net.hypixel.api.apache.ApacheHttpClient;
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Utils {
 
@@ -18,6 +21,20 @@ public class Utils {
         return Config.get("HYPIXEL_API_KEY");
     }
 
+    public static int getEmbedColor() {
+        return Color.getColor(Config.get("EMBED_COLOR")).hashCode();
+    }
+
+    public static int extractLevel(String input) {
+        Pattern pattern = Pattern.compile("\\[(\\d+)★\\]");
+        Matcher matcher = pattern.matcher(input);
+
+        if (matcher.find()) {
+            return Integer.parseInt(matcher.group(1));
+        } else {
+            throw new IllegalArgumentException("No number found inside brackets.");
+        }
+    }
 
     public static String getPlayerUUID(String playerName) {
         String apiUrl = "https://api.mojang.com/users/profiles/minecraft/" + playerName;
@@ -42,7 +59,6 @@ public class Utils {
 
             connection.disconnect();
 
-            // Parse the JSON response using Gson
             JsonObject jsonResponse = JsonParser.parseString(response.toString()).getAsJsonObject();
             return jsonResponse.get("id").getAsString();
 
