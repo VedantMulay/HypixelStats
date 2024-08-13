@@ -1,24 +1,40 @@
-# Hypixel Discord Stats Bot
 
-A Discord bot that provides detailed Hypixel statistics for players using the Hypixel API. This bot fetches and displays various player stats for games like Bedwars and more.
-This bot is currently under development and will be adding many more features to the bot from the Hypixel Network.
+# Hypixel Stats
 
-## Currently Supported Stats
+Yet another discord bot to view player stats from the [Hypixel Network](https://hypixel.net)
+
+
+
+
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
+
+
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`HYPIXEL_API_KEY`
+
+`DISCORD_BOT_TOKEN`
+
+
+## Installation
+
+1. Download the latest version from the [releases page](https://github.com/VedantMulay/HypixelStats/releases).
+
+2. Put your bot token and the Hypixel API key in the .env file. (Refer `.env.example`)
+
+```bash
+  java -jar bot.jar
+```
+    
+## Stats Shown Currently
 - Player Information
 - Skywars Stats
 - Bedwars Stats
-- many more gamemodes will be added soon
+## Acknowledgements
 
-## Installation
-1. Download the latest release from the [releases](https://github.com/VedantMulay/HypixelStats/releases) page
-2. Make a file named `.env` and configure the bot to your liking
-3. Use the following command to run the bot jar file.
-   
-   ```bash
-   java -jar bot.jar
-   ```
-5. That's It!
+ - [Hypixel API](https://github.com/HypixelDev/PublicAPI)
+ - [Java Discord API](https://github.com/discord-jda/JDA)
 
-## Libraries Used
-- [Hypixel API](https://github.com/HypixelDev/Public-API)
-- [Java Discord API (JDA)](https://github.com/discord-jda/JDA)
